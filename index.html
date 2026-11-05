@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nidhi Kalyanshetti · Data Science</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body><main class="wrap">
+<h1>Nidhi Kalyanshetti</h1><p class="sub">Data Science · Analytics · LLM systems</p>
+<h2>Career &amp; Education</h2>
+<div class="chartwrap"><div class="chart" id="chart" role="img" aria-label="Timeline of education and career by year and age"></div></div>
+<nav class="pills fade" style="animation-delay:2.6s"><a class="pill" href="projects.html">Projects</a><a class="pill" href="cv.html">CV</a><a class="pill" href="mailto:nidhi.kalyanshetti@gmail.com">Contact</a></nav>
+<div class="chips fade" style="animation-delay:3s" id="chips"></div>
+</main><footer id="foot"></footer>
+<script src="site.js"></script>
+<script>
+// Add a new milestone here and it grows on the chart.
+const MILESTONES=[
+ {year:2022,label:"Bachelor’s · Gogte",color:"#2DD4BF",ring:"#99F6E4"},
+ {year:2024,label:"Data Analyst · Dentsu",color:"#F5B84B",ring:"#FCD98B"},
+ {year:2026,label:"MDS · RMIT",color:"#A78BFA",ring:"#C9B8FC"}];
+const TECH=["Python","SQL","Tableau","Power BI","Snowflake","AWS","Ollama"];
+const BASE=20,K=45,FLOWER=68;
+const ages=MILESTONES.map(m=>m.year-CONFIG.birthYear);
+let y="";for(let a=BASE;a<=BASE+8;a+=2)y+=`<span style="bottom:${(a-BASE)*K-9}px">${a}</span>`;
+const plants=MILESTONES.map((m,i)=>{
+ const stem=Math.max((ages[i]-BASE)*K-FLOWER,10);
+ return `<div class="plant" style="animation-delay:${i*0.7}s"><small>${m.label}</small><div class="flower" style="background:${m.color};border-color:${m.ring}"></div><div class="stem" style="height:${stem}px;background:${m.color}"><i class="leaf" style="background:${m.color};left:8px;top:${stem*.3}px"></i><i class="leaf" style="background:${m.color};right:8px;top:${stem*.6}px;transform:scaleX(-1)"></i></div></div>`}).join("");
+chart.innerHTML=`<div class="row"><div class="yax"><span style="top:-6px;color:var(--fg);font-weight:700">Age</span>${y}</div><div class="plot"><div class="plants">${plants}</div></div></div><div class="xax">${MILESTONES.map(m=>`<span>${m.year}</span>`).join("")}</div><p class="cap">Year</p>`;
+chips.innerHTML=TECH.map(t=>`<span class="chip">${t}</span>`).join("");
+</script></body></html>

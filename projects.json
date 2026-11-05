@@ -1,0 +1,4 @@
+[
+  {"title":"LLM-driven contradiction detector","description":"Hybrid retrieval (BM25 + Chroma + all-MiniLM-L6-v2) with LLM reranking to find conflicting clauses across contracts.","tags":["Python","LLM","RAG","Ollama"],"github":"","demo":""},
+  {"title":"Live performance monitoring dashboard","description":"Daily live Tableau dashboard tracking regional sales KPIs with historical comparison and Excel/PDF export.","tags":["Tableau","SQL","Excel"],"github":"","demo":""}
+]
